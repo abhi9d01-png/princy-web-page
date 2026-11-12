@@ -1,0 +1,120 @@
+:root {
+  color-scheme: light;
+  --ink: #332a23;
+  --muted: #796c60;
+  --paper: #fbfaf4;
+  --page-turn: 720ms;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #ede8df;
+}
+
+.book { position: relative; }
+
+.book__stage {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  perspective: 1400px;
+  background: #fff;
+}
+
+.book__shadow {
+  display: none;
+}
+
+.paper {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: none;
+  transform-origin: center top;
+  transition: transform var(--page-turn) cubic-bezier(.22, .7, .2, 1), opacity var(--page-turn);
+}
+
+.paper.is-turning { transform: rotateX(165deg); opacity: .25; }
+
+.paper__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(90deg) scale(1.35);
+}
+
+.paper__content {
+  position: absolute;
+  inset: 15% 8% 8% 9%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8% 8% 8% 10%;
+  text-align: left;
+}
+
+.eyebrow {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font: 600 .75rem/1.2 system-ui, sans-serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 8ch;
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.paper__content > p:not(.eyebrow) {
+  max-width: 28rem;
+  margin: 2rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  line-height: 1.5;
+}
+
+.page-number {
+  position: absolute;
+  right: 8%;
+  bottom: 7%;
+  color: var(--muted);
+  font: .72rem system-ui, sans-serif;
+  letter-spacing: .15em;
+}
+
+.book__scroll { position: relative; z-index: 1; margin-top: -100svh; }
+
+.chapter {
+  height: 100svh;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 600px) {
+  .paper__image { transform: rotate(90deg) scale(1.2); }
+  h1 { font-size: clamp(2.3rem, 12vw, 4rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .paper { transition: none; }
+}
