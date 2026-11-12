@@ -3,32 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Notebook Story</title>
+    <title>Spiral Notebook</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="book" aria-label="Notebook story">
-      <div class="book__stage">
-        <div class="book__shadow" aria-hidden="true"></div>
-        <div class="paper" aria-live="polite">
-          <img class="paper__image" src="imge%20refrences/Download%20Blank%20open%20notebook%20with%20ring%20binder%20isolated%20on%20white%20ideal%20for%20business%20school%20art%20or%20craft%20scenes%20for%20free.jpg" alt="" aria-hidden="true" />
-          <div class="paper__content">
-            <p class="eyebrow" id="eyebrow">A small beginning</p>
-            <h1 id="title">Ideas start<br />on a blank page.</h1>
-            <p id="body">Scroll to turn the page and move through the story.</p>
-            <span class="page-number" id="page-number">01 / 05</span>
-            <button class="next-page" id="next-page" type="button">Next page ↓</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="book__scroll" aria-label="Story pages">
-        <section class="chapter" data-eyebrow="Page 01 · Hero" data-title="Hello,|I’m Abhir." data-body="I turn ideas into clear, useful, and memorable digital experiences." data-page="01 / 05"></section>
-        <section class="chapter" data-eyebrow="Page 02 · What I do" data-title="I make|things work." data-body="Web design · Front-end development · Motion · Creative direction" data-page="02 / 05"></section>
-        <section class="chapter" data-eyebrow="Page 03 · About me" data-title="A curious|maker." data-body="I like simple ideas, thoughtful details, and work that feels human." data-page="03 / 05"></section>
-        <section class="chapter" data-eyebrow="Page 04 · Get in touch" data-title="Let’s make|something." data-body="hello@yourname.com · Instagram · LinkedIn" data-page="04 / 05"></section>
-        <section class="chapter" data-eyebrow="Page 05 · Thank you" data-title="Thanks for|stopping by." data-body="Keep scrolling, keep making, and come back soon." data-page="05 / 05"></section>
-      </div>
+    <main class="stage">
+      <section class="notebook" tabindex="0" role="application" aria-label="Page 1 of 5">
+        <div class="cover" aria-hidden="true"></div>
+        <div class="left-stack" aria-hidden="true"></div>
+        <div class="right-stack" aria-hidden="true"></div>
+        <div class="turn-shadow" aria-hidden="true"></div>
+        <div class="active-layer" aria-hidden="true"></div>
+        <img class="spiral" src="assets/spiral.png" alt="" aria-hidden="true" />
+        <p class="page-status" aria-live="polite">Page 1 of 5</p>
+        <button class="next-page" type="button">Next page ↓</button>
+        <p class="gesture-hint">Scroll or use ← →</p>
+      </section>
     </main>
     <script src="script.js"></script>
   </body>
