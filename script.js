@@ -4,6 +4,7 @@ const eyebrow = document.querySelector('#eyebrow');
 const title = document.querySelector('#title');
 const body = document.querySelector('#body');
 const pageNumber = document.querySelector('#page-number');
+const nextPage = document.querySelector('#next-page');
 let current = 0;
 
 function showChapter(index) {
@@ -15,6 +16,7 @@ function showChapter(index) {
     title.innerHTML = chapter.dataset.title.replace('|', '<br />');
     body.textContent = chapter.dataset.body;
     pageNumber.textContent = chapter.dataset.page;
+    nextPage.textContent = index === chapters.length - 1 ? 'Back to top ↑' : 'Next page ↓';
     paper.classList.remove('is-turning');
     paper.dataset.ready = 'true';
   };
@@ -35,3 +37,13 @@ const observer = new IntersectionObserver((entries) => {
 
 chapters.forEach((chapter) => observer.observe(chapter));
 showChapter(0);
+
+nextPage.addEventListener('click', () => {
+  const nextIndex = current + 1;
+  const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  if (nextIndex < chapters.length) {
+    chapters[nextIndex].scrollIntoView({ behavior });
+  } else {
+    window.scrollTo({ top: 0, behavior });
+  }
+});

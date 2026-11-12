@@ -102,6 +102,28 @@ h1 {
   letter-spacing: .15em;
 }
 
+.next-page {
+  position: absolute;
+  right: 7.5%;
+  bottom: 3%;
+  padding: .45rem .7rem;
+  border: 1px solid rgb(121 108 96 / 45%);
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  font: .7rem system-ui, sans-serif;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.next-page:hover,
+.next-page:focus-visible {
+  border-color: var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+}
+
 .book__scroll { position: relative; z-index: 1; margin-top: -100svh; }
 
 .chapter {
