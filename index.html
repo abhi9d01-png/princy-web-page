@@ -37,20 +37,43 @@
       <section class="hero" id="home" aria-label="Welcome to the creative world of Princy Yadav">
         <div class="collage" aria-label="A scrapbook collage introducing Princy Yadav">
           <img class="collage-folder" src="image/pink_open_foulder.png" alt="">
+          <div
+            class="scrapbook-group backing-papers-group"
+            data-scrapbook-group="backing"
+            role="group"
+            aria-label="Background paper stack"
+          >
+            <div class="backing-blue-anchor">
+              <img
+                class="resume-paper"
+                src="image/blue_paper_for_resume.png"
+                alt=""
+                tabindex="0"
+                role="button"
+                aria-label="Bring background papers to front"
+                data-scrapbook-trigger
+                aria-pressed="false"
+              >
+            </div>
+            <img
+              class="collage-piece green-paper"
+              src="image/stamp_green.png"
+              alt=""
+              tabindex="0"
+              role="button"
+              aria-label="Bring background papers to front"
+              data-scrapbook-trigger
+              aria-pressed="false"
+            >
+          </div>
           <figure class="photo-card photo-one">
             <img src="image/personal_photo_01.jpeg" alt="Princy by the water at night">
           </figure>
-          <figure class="photo-card photo-two">
-            <img src="image/personal_photo_04.jpeg" alt="Princy in a pink outfit">
-          </figure>
           <img class="collage-piece diary" src="image/diray.png" alt="">
-          <img class="collage-piece camera" src="image/dig_camp.png" alt="">
           <img class="collage-piece flowers" src="image/flower-was.png" alt="">
           <img class="collage-piece background-paper" src="image/green_paper_stip.png" alt="">
-          <img class="collage-piece green-paper" src="image/stamp_green.png" alt="">
           <img class="collage-piece tray" src="image/paper_stam_cut_ot.png" alt="">
           <img class="collage-piece lily" src="image/pik_lily.png" alt="">
-          <img class="collage-piece clip" src="image/paper_clip.png" alt="">
           <img class="collage-piece star star-one" src="image/star1.png" alt="">
           <img class="collage-piece star star-two" src="image/star2.png" alt="">
           <img class="collage-piece star star-three" src="image/star3.png" alt="">
@@ -58,21 +81,48 @@
           <img class="collage-piece star star-bottom-left" src="image/star3.png" alt="">
           <img class="collage-piece pearl-flower" src="image/button_lilly.png" alt="">
           <img class="collage-piece pink-flower" src="image/button.png" alt="">
-          <div class="resume-stack">
-            <img class="resume-paper" src="image/blue_paper_for_resume.png" alt="">
-            <img
-              class="profile-poster"
-              src="image/princy-journey-poster.png"
-              alt="Princy Yadav's creative journey resume"
-            >
-            <a
-              class="resume-download"
-              href="image/princy-journey-poster.png"
-              download="Princy-Yadav-Resume.png"
-            >
-              <img src="image/stap_desigh_for_resume_downlo_link.png" alt="">
-              <span>Download my resume</span>
-            </a>
+          <div
+            class="scrapbook-group resume-group is-active"
+            data-scrapbook-group="resume"
+            role="group"
+            aria-label="Resume paper stack"
+          >
+            <div class="resume-stack">
+              <img
+                class="profile-poster"
+                src="image/princy-journey-poster.png"
+                alt="Princy Yadav's creative journey resume"
+                tabindex="0"
+                role="button"
+                aria-label="Bring resume stack to front"
+                data-scrapbook-trigger
+                aria-pressed="true"
+              >
+              <figure
+                class="photo-card photo-two"
+                tabindex="0"
+                role="button"
+                aria-label="Bring resume stack to front"
+                data-scrapbook-trigger
+                aria-pressed="true"
+              >
+                <img src="image/personal_photo_04.jpeg" alt="Princy in a pink outfit">
+                <img
+                  class="collage-piece clip"
+                  src="image/paper_clip.png"
+                  alt=""
+                  aria-hidden="true"
+                >
+              </figure>
+              <a
+                class="resume-download"
+                href="image/princy-journey-poster.png"
+                download="Princy-Yadav-Resume.png"
+              >
+                <img src="image/stap_desigh_for_resume_downlo_link.png" alt="">
+                <span>Download my resume</span>
+              </a>
+            </div>
           </div>
           <p class="collage-caption">A creative journey in progress</p>
         </div>
@@ -128,5 +178,29 @@
       <p>© 2026 Princy Yadav</p>
       <a href="#home">Back to top ↑</a>
     </footer>
+    <script>
+      const scrapbookGroups = document.querySelectorAll("[data-scrapbook-group]");
+
+      const activateScrapbookGroup = (activeGroup) => {
+        scrapbookGroups.forEach((group) => {
+          const isActive = group === activeGroup;
+          group.classList.toggle("is-active", isActive);
+          group.querySelectorAll("[data-scrapbook-trigger]").forEach((trigger) => {
+            trigger.setAttribute("aria-pressed", String(isActive));
+          });
+        });
+      };
+
+      scrapbookGroups.forEach((group) => {
+        group.addEventListener("click", () => activateScrapbookGroup(group));
+        group.addEventListener("keydown", (event) => {
+          if (event.target.closest("a")) return;
+          if (event.key !== "Enter" && event.key !== " ") return;
+
+          event.preventDefault();
+          activateScrapbookGroup(group);
+        });
+      });
+    </script>
   </body>
 </html>
