@@ -121,10 +121,12 @@ a {
   transition: transform 420ms cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
+/* Backing-paper stack: controls the layer order for the blue page and green stamp. */
 .backing-papers-group {
   z-index: 7;
 }
 
+/* Resume stack: controls the layer order for the cream poster and its attachments. */
 .resume-group {
   z-index: 4;
 }
@@ -211,22 +213,24 @@ a {
   z-index: 1;
   top: 52%;
   right: 5.5%;
-  width: 12%;
+  width: 13.5%;
   transform: rotate(72deg);
   animation: drift-in 900ms 260ms both;
 }
 
+/* Positions the green stamp inside the backing-paper stack. */
 .green-paper {
   z-index: 2;
-  top: 0;
-  left: 90%;
-  width: 7%;
+  top: 30%;
+  left: 70%;
+  width: 12%;
   pointer-events: auto;
   cursor: pointer;
   transform: rotate(-12deg);
   animation: drift-in 900ms 260ms both;
 }
 
+/* Positions the blue journal within the backing-paper stack. */
 .backing-blue-anchor {
   position: absolute;
   z-index: 0;
@@ -329,6 +333,7 @@ a {
   animation: drift-in 900ms 400ms both;
 }
 
+/* Positions the resume assembly within the collage; its child rules place the poster and attachments. */
 .resume-stack {
   position: absolute;
   z-index: 1;
@@ -793,14 +798,14 @@ a {
     top: 52%;
     right: 16%;
     bottom: auto;
-    width: 15%;
+    width: 17%;
   }
 
   .green-paper {
-    top: 0%;
-    right: 2%;
+    top: 20%;
+    right: 20%;
     left: auto;
-    width: 8%;
+    width: 13.2%;
   }
 
   .tray {
@@ -863,6 +868,7 @@ a {
     width: 36%;
   }
 
+  /* Mobile overrides reposition the blue journal within the same backing-paper stack. */
   .backing-blue-anchor {
     top: 75%;
     left: 35%;
