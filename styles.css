@@ -212,9 +212,9 @@ a {
 .background-paper {
   z-index: 1;
   top: 52%;
-  right: 5.5%;
+  right: 20.5%;
   width: 13.5%;
-  transform: rotate(72deg);
+  transform: rotate(187deg);
   animation: drift-in 900ms 260ms both;
 }
 
@@ -437,7 +437,6 @@ a {
   outline-offset: 3px;
 }
 
-.
 .collage-caption {
   position: absolute;
   z-index: 6;
@@ -766,7 +765,7 @@ a {
   .background-paper {
     top: 52%;
     right: 16%;
-    bottom: auto;
+    bottom: ;
     width: 17%;
   }
 
