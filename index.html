@@ -61,7 +61,6 @@
                     <p>
                       I believe that understanding people begins with curiosity, empathy, and an open mind. I enjoy exploring how psychological concepts influence our thoughts, decisions, relationships, and everyday experiences.
                     </p>
-                    <span class="journal-page-number" aria-hidden="true">01</span>
                   </section>
                   <section class="journal-page journal-page--right" aria-label="Introduction, page two">
                     <p>
@@ -71,7 +70,6 @@
                       I am always open to connecting with fellow students, researchers, and professionals who share an interest in psychology, mental health, and human development.
                     </p>
                     <p class="journal-closing">Curious mind. Compassionate heart. Lifelong learner. 🌿</p>
-                    <span class="journal-page-number" aria-hidden="true">02</span>
                   </section>
                 </div>
               </div>
@@ -201,8 +199,13 @@
     </footer>
     <script>
       const scrapbookGroups = document.querySelectorAll("[data-scrapbook-group]");
+      const hero = document.querySelector(".hero");
 
       const activateScrapbookGroup = (activeGroup) => {
+        hero.classList.toggle(
+          "is-backing-open",
+          activeGroup.dataset.scrapbookGroup === "backing"
+        );
         scrapbookGroups.forEach((group) => {
           const isActive = group === activeGroup;
           group.classList.toggle("is-active", isActive);

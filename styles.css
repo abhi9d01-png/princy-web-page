@@ -145,7 +145,7 @@ a {
 }
 
 .collage-folder {
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -230,10 +230,10 @@ a {
 .backing-blue-anchor {
   position: absolute;
   z-index: 0;
-  top: 5%;
-  left: 2%;
-  width: 58%;
-  aspect-ratio: 1.1;
+  top: 7.2%;
+  left: 35%;
+  width: 30%;
+  aspect-ratio: 1121 / 1403;
 }
 
 .tray {
@@ -333,7 +333,7 @@ a {
   position: absolute;
   z-index: 1;
   top: 11.5%;
-  left: 62%;
+  left: 32%;
   width: 36%;
   aspect-ratio: 1121 / 1403;
   pointer-events: none;
@@ -353,9 +353,9 @@ a {
 .blue-journal {
   position: relative;
   overflow: hidden;
-  padding: 6% 6%;
+  padding: 5% 4%;
   background: url("image/blue_paper_for_resume.png") center / 100% 100% no-repeat;
-  box-shadow: 0 12px 18px rgba(39, 27, 24, 0.22);
+  box-shadow: 0 6px 12px rgba(39, 27, 24, 0.16);
   color: #202b42;
 }
 
@@ -381,24 +381,27 @@ a {
   display: grid;
   height: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4%;
+  gap: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(0.68rem, 1.05vw, 0.98rem);
-  line-height: 1.55;
+  font-size: clamp(0.65rem, 0.7vw, 0.72rem);
+  line-height: 1.3;
+}
+
+.backing-papers-group:not(.is-active) .journal-pages {
+  visibility: hidden;
 }
 
 .journal-page {
   position: relative;
   min-width: 0;
-  padding-bottom: 1.4rem;
-}
-
-.journal-page--right {
-  padding-left: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6%;
 }
 
 .journal-page p {
-  margin: 0 0 1.15em;
+  margin: 0 0 0.9em;
 }
 
 .journal-page .journal-closing {
@@ -407,16 +410,6 @@ a {
   font-size: 1.08em;
   font-style: italic;
   line-height: 1.45;
-}
-
-.journal-page-number {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: rgba(32, 43, 66, 0.65);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.72em;
-  letter-spacing: 0.1em;
 }
 
 .profile-poster {
@@ -866,15 +859,27 @@ a {
 
   .resume-stack {
     top: 78%;
-    left: 35%;
+    left: 32%;
     width: 36%;
   }
 
   .backing-blue-anchor {
+    top: 75%;
+    left: 35%;
+    width: 30%;
+    aspect-ratio: 1121 / 1403;
+    transition:
+      top 420ms cubic-bezier(0.2, 0.75, 0.3, 1),
+      left 420ms cubic-bezier(0.2, 0.75, 0.3, 1),
+      width 420ms cubic-bezier(0.2, 0.75, 0.3, 1),
+      height 420ms cubic-bezier(0.2, 0.75, 0.3, 1);
+  }
+
+  .backing-papers-group.is-active .backing-blue-anchor {
     top: 2%;
     left: 4%;
-    width: 92%;
-    height: 76%;
+    width: 76%;
+    height: clamp(700px, 175vw, 850px);
     aspect-ratio: auto;
   }
 
@@ -956,7 +961,33 @@ a {
   }
 }
 
+@media (min-width: 761px) and (max-width: 1199px) {
+  .hero.is-backing-open {
+    padding-bottom: clamp(220px, 25vw, 300px);
+  }
+
+  .backing-papers-group.is-active .backing-blue-anchor {
+    top: 2%;
+    left: 12%;
+    width: 76%;
+    height: clamp(640px, 64vw, 760px);
+    aspect-ratio: auto;
+  }
+}
+
 @media (min-width: 1200px) and (max-height: 800px) {
+  .hero.is-backing-open {
+    padding-bottom: clamp(180px, 20vw, 260px);
+  }
+
+  .backing-papers-group.is-active .backing-blue-anchor {
+    top: 2%;
+    left: 12%;
+    width: 76%;
+    height: clamp(640px, 58vw, 720px);
+    aspect-ratio: auto;
+  }
+
   .background-paper {
     right: -4.5%;
   }
