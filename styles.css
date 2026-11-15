@@ -122,7 +122,7 @@ a {
 }
 
 .backing-papers-group {
-  z-index: 3;
+  z-index: 7;
 }
 
 .resume-group {
@@ -218,9 +218,9 @@ a {
 
 .green-paper {
   z-index: 2;
-  top: 55%;
-  left: 80.5%;
-  width: 14%;
+  top: 0;
+  left: 90%;
+  width: 7%;
   pointer-events: auto;
   cursor: pointer;
   transform: rotate(-12deg);
@@ -230,10 +230,10 @@ a {
 .backing-blue-anchor {
   position: absolute;
   z-index: 0;
-  top: 11.5%;
-  left: 36.1%;
-  width: 41.1%;
-  aspect-ratio: 1121 / 1403;
+  top: 5%;
+  left: 2%;
+  width: 58%;
+  aspect-ratio: 1.1;
 }
 
 .tray {
@@ -333,8 +333,8 @@ a {
   position: absolute;
   z-index: 1;
   top: 11.5%;
-  left: 36.1%;
-  width: 41.1%;
+  left: 62%;
+  width: 36%;
   aspect-ratio: 1121 / 1403;
   pointer-events: none;
 }
@@ -342,17 +342,81 @@ a {
 .resume-paper {
   position: absolute;
   z-index: 0;
-  top: -1%;
-  left: -6%;
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: left center;
-  filter: drop-shadow(0 12px 12px rgba(39, 27, 24, 0.2));
   pointer-events: auto;
   cursor: pointer;
-  transform: rotate(2deg);
+  transform: rotate(-1deg);
+}
+
+.blue-journal {
+  position: relative;
+  overflow: hidden;
+  padding: 6% 6%;
+  background: url("image/blue_paper_for_resume.png") center / 100% 100% no-repeat;
+  box-shadow: 0 12px 18px rgba(39, 27, 24, 0.22);
+  color: #202b42;
+}
+
+.blue-journal::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 249, 249, 0.13) 0%,
+    rgba(247, 249, 249, 0.13) 49.5%,
+    rgba(42, 56, 76, 0.1) 50%,
+    rgba(247, 249, 249, 0.07) 51%,
+    rgba(247, 249, 249, 0.07) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.journal-pages {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(0.68rem, 1.05vw, 0.98rem);
+  line-height: 1.55;
+}
+
+.journal-page {
+  position: relative;
+  min-width: 0;
+  padding-bottom: 1.4rem;
+}
+
+.journal-page--right {
+  padding-left: 1%;
+}
+
+.journal-page p {
+  margin: 0 0 1.15em;
+}
+
+.journal-page .journal-closing {
+  margin-top: 1.25em;
+  color: #34445c;
+  font-size: 1.08em;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.journal-page-number {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: rgba(32, 43, 66, 0.65);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.72em;
+  letter-spacing: 0.1em;
 }
 
 .profile-poster {
@@ -695,8 +759,8 @@ a {
 
   .collage {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1536 / 995;
+    height: clamp(1100px, 280vw, 1500px);
+    aspect-ratio: auto;
     margin-top: 0;
   }
 
@@ -740,10 +804,10 @@ a {
   }
 
   .green-paper {
-    top: 55%;
-    right: auto;
-    left: 79.5%;
-    width: 14%;
+    top: 0%;
+    right: 2%;
+    left: auto;
+    width: 8%;
   }
 
   .tray {
@@ -801,15 +865,54 @@ a {
   }
 
   .resume-stack {
-    top: 7%;
+    top: 78%;
     left: 35%;
-    width: 40%;
+    width: 36%;
   }
 
   .backing-blue-anchor {
-    top: 7%;
-    left: 35%;
-    width: 40%;
+    top: 2%;
+    left: 4%;
+    width: 92%;
+    height: 76%;
+    aspect-ratio: auto;
+  }
+
+  .blue-journal {
+    padding: 6% 7%;
+  }
+
+  .journal-pages {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.85rem;
+    font-size: clamp(0.72rem, 3.1vw, 0.9rem);
+    line-height: 1.45;
+  }
+
+  .blue-journal::before {
+    background: linear-gradient(
+      180deg,
+      rgba(247, 249, 249, 0.13) 0%,
+      rgba(247, 249, 249, 0.13) 49.5%,
+      rgba(42, 56, 76, 0.1) 50%,
+      rgba(247, 249, 249, 0.07) 51%,
+      rgba(247, 249, 249, 0.07) 100%
+    );
+  }
+
+  .journal-page {
+    padding-bottom: 1rem;
+  }
+
+  .journal-page--right {
+    padding-top: 0.85rem;
+    padding-left: 0;
+    border-top: 1px solid rgba(32, 43, 66, 0.2);
+  }
+
+  .journal-page .journal-closing {
+    margin-top: 0.9em;
   }
 
   .resume-download {
